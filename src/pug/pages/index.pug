@@ -1,0 +1,12 @@
+include  ../include/head
+include  ../mixin/svg
+-var arr = ['Сводка', 'Устройства', 'Устройства'];
+.header
+    .container
+        .header__left.v-center
+            a.header__logo(href="/")
+                img(src="./img/logo.png")
+        .header__right.v-center
+            ul.nav
+                each item,index in arr
+                    li.nav__item(class=!index ? '-active' : '') #{item}

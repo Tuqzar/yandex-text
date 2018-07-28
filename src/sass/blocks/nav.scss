@@ -1,0 +1,37 @@
+@import "../variable";
+@import "../mixin";
+.header {
+  height: 92px;
+  font-size: 16px;
+  color: $black;
+  line-height: 20px;
+  padding-top: calc((92px - 46px) / 2);
+  @extend %box-sizing;
+  .container{
+    height: 46px;
+  }
+  &__left,
+  &__right {
+    @extend %d-ib;
+    vertical-align: top;
+    height: inherit;
+  }
+  &__logo{
+    @extend %d-ib;
+    margin-right: 38px;
+  }
+}
+.nav{
+  &__item{
+    @extend %d-ib;
+    @extend %pointer;
+    padding: 14px;
+    opacity: 0.6;
+    &:hover{
+      opacity: 1;
+    }
+    &.-active{
+      opacity: 1;
+    }
+  }
+}
