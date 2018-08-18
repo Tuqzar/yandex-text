@@ -1,11 +1,10 @@
-@import "../variable";
-@import "../mixin";
 .header {
   height: 92px;
   font-size: 16px;
   color: $black;
   line-height: 20px;
   padding-top: calc((92px - 46px) / 2);
+  box-shadow: 0 1px 0 0 #f0f0f0;
   @extend %box-sizing;
   .container{
     height: 46px;
@@ -13,12 +12,15 @@
   &__left,
   &__right {
     @extend %d-ib;
-    vertical-align: top;
+    @extend %v-t;
     height: inherit;
   }
   &__logo{
     @extend %d-ib;
     margin-right: 38px;
+  }
+  &__inner{
+    @extend %v-center;
   }
 }
 .nav{
@@ -34,4 +36,7 @@
       opacity: 1;
     }
   }
+}
+.humburger{
+  display: none;
 }

@@ -1,0 +1,105 @@
+-var home = {};
+-home.main = {head: '', owner: '', inf: '', condition: [], device: []};
+-home.main.head = "Главное"
+-home.main.owner = "Геннадий"
+-home.main.inf = "Двери и окна закрыты, сигнализация включена"
+-home.main.condition.push({name: "Дома", value: "+23", class: "home__news-item_home"});
+-home.main.condition.push({name: "За окном", value: "+19", class: "home__news-item_outside"});
+-home.main.device.push({name: 'Philips Cooler', desc: 'Начнет охлаждать в 16:30', img: 'icon_temperature@2x'});
+-home.main.device.push({name: 'Xiaomi Yeelight LED Smart Bulb', desc: 'Включится в 17:00', img: 'icon_sun@2x'});
+
+-home.favoritScen = [];
+-home.favoritScen.push({name: 'Выключить весь свет в доме и во дворе', img: 'icon_sun_2@2x'});
+-home.favoritScen.push({name: 'Я ухожу', img: 'icon_scheduled@2x'});
+-home.favoritScen.push({name: 'Включить свет \u2028в коридоре', img: 'icon_sun_2@2x'});
+-home.favoritScen.push({name: 'Набрать горячую ванну', desc: 'Начнётся в 18:00', img: 'icon_temperature_2@2x'});
+-home.favoritScen.push({name: 'Сделать пол тёплым во всей квартире', img: 'icon_temperature_2@2x'});
+-home.favoritScen.push({name: 'Сделать пол тёплым во всей квартире', img: 'icon_temperature_2@2x'});
+-home.favoritScen.push({name: 'Сделать пол тёплым во всей квартире', img: 'icon_temperature_2@2x'});
+-home.favoritScen.push({name: 'Сделать пол тёплым во всей квартире', img: 'icon_temperature_2@2x'});
+-home.favoritScen.push({name: 'Сделать пол тёплым во всей квартире', img: 'icon_temperature_2@2x'});
+
+-home.favoritScen.push({name: 'Выключить весь свет в доме и во дворе', img: 'icon_sun_2@2x'});
+-home.favoritScen.push({name: 'Я ухожу', img: 'icon_scheduled@2x'});
+-home.favoritScen.push({name: 'Включить свет \u2028в коридоре', img: 'icon_sun_2@2x'});
+-home.favoritScen.push({name: 'Набрать горячую ванну', desc: 'Начнётся в 18:00', img: 'icon_temperature_2@2x'});
+-home.favoritScen.push({name: 'Сделать пол тёплым во всей квартире', img: 'icon_temperature_2@2x'});
+-home.favoritScen.push({name: 'Сделать пол тёплым во всей квартире', img: 'icon_temperature_2@2x'});
+
+-home.favoritDevice = {head: '', category: [], list: []};
+-home.favoritDevice.head = "Избранные устройства";
+-home.favoritDevice.category = ["Кухня", "Зал", "Лампочки", "Камера"];
+-home.favoritDevice.list.push({name: 'Xiaomi Yeelight LED Smart Bulb', type: 'light', value: '23',condition: 'Включено', img: 'icon_sun_2@2x'})
+-home.favoritDevice.list.push({name: 'LIFX Mini Day & Dusk A60 E27', type: 'temperature', value: '16',condition: 'Включится в 17:00', img: 'icon_temperature_2@2x'})
+-home.favoritDevice.list.push({name: 'Elgato Eve Degree Connected', type: 'temperature', value: '53',condition: 'Выключено до 17:00', img: 'icon_temperature_2@2x'})
+-home.favoritDevice.list.push({name: 'D-Link Omna 180 Cam', type: 'light', value: '23',condition: 'Включится в 17:00', img: 'icon_sun@2x'})
+-home.favoritDevice.list.push({name: 'Xiaomi Mi Air Purifier 2S', type: '', value: '45',condition: 'Включено', img: 'icon_sun_2@2x'})
+-home.favoritDevice.list.push({name: 'Philips Zhirui', type: '', value: '23',condition: 'Выключено', img: 'icon_sun@2x'})
+-home.favoritDevice.list.push({name: 'Xiaomi Mi Air Purifier 2S', type: '', value: '88',condition: 'Включено', img: 'icon_sun_2@2x'})
+
+.main
+    .container
+        .main__top
+            .main__top-left.home
+                h3.home__head #{home.main.head}
+                .home__head-contant
+                    .home__left
+                        h2.hove__head Привет, #{home.main.owner}!
+                        h5.home__desc #{home.main.inf}
+                        .home__news
+                            each item in home.main.condition
+                                .home__news-item(class=item.class)
+                                    .home__news-name #{item.name}
+                                    .home__news-value #{item.value}
+                    .home__right.subject-list
+                        each device in home.main.device
+                            .home__device
+                                img.home__device-img(src="./img/" + device.img + ".png")
+                                .home__device-text
+                                    .home__device-text-inner
+                                        h6.home__device-desc #{device.desc}
+                                        h4.home__device-name #{device.name}
+                        .home__device_more
+            .main__top-right.f-scene
+                .f-scene__header
+                    h3.f-scene__name
+                        |Избранные сценарии
+                    div.arrow.clearfix
+                        span.arrow__next
+                        span.arrow__prev
+                .f-scenes
+                    -var a = (home.favoritScen.length / 9);
+                    -var b = a % 1 == 0 ?  a : +(a + "")[0] + 1;
+                    -for(var i = 0, k = 0; i < b; i++)
+                        .f-scene__inner.clearfix
+                            -for(var j = 0, length = home.favoritScen.length; j < 9 && k < length; j++, k++)
+                                -var scene = home.favoritScen[k];
+                                .f-scene__item
+                                    img.f-scene__item-img(src="./img/" + scene.img + ".png")
+                                    .f-scene__text
+                                        .f-scene__text-inner
+                                            h6.f-scene__item-desc #{scene.desc}
+                                            h4.f-scene__item-name #{scene.name}
+        .main__bottom.f-device
+            .f-device__header
+                .f-device__header-left
+                    h3.f-device__head #{home.favoritDevice.head}
+                    .f-device__category.f-device__category_all.-active Все
+                    ul.f-device__category-list
+                        each category in home.favoritDevice.category
+                            li.f-device__category #{category}
+                div.arrow.f-device__header-right
+                    span.arrow__next.-active
+                    span.arrow__prev
+            .f-device__list
+                each device in home.favoritDevice.list
+                    .f-device__item-wrapper
+                        .f-device__item-inner
+                            .f-device__item(data-value=device.value, data-type=device.type)
+                                img.f-device__item-img(src="./img/" + device.img + ".png")
+                                .f-device__text
+                                    //.f-device__item-wrapper
+                                    .f-device__text-inner
+                                        h6.f-device__item-desc #{device.condition}
+                                        h4.f-device__item-name #{device.name}
+                                            //.ellipsis ...

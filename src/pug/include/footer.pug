@@ -1,0 +1,9 @@
+-var arr = ["Помощь", "Обратная связь", "Разработчикам", "Условия использования"]
+.footer
+    .container
+        ul.footer__item-list
+            each item in arr
+                li.footer__item
+                    a(href="#")   #{item}
+        .footer__item.footer__item_last
+            a(href="#") © 2001–2017  ООО «Яндекс»

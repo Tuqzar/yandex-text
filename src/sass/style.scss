@@ -1,27 +1,9 @@
+@import "./mixin";
+@import "./variable";
 @import './global';
 @import "./blocks/nav";
-@import "./variable";
-@import "./media";
-*{
-  font-family: Arial;
-}
-.header{
-  font-weight: 700;
-}
+@import "./include/main";
+@import "./include/footer";
 
-.container{
-  width: 1071px;
-  margin: 0 auto;
-}
-.v-center{
-  &:before{
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-  }
-  & > *{
-    display: inline-block;
-    vertical-align: middle;
-  }
-}
+
+@import "./media";

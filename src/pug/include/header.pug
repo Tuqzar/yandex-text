@@ -1,0 +1,11 @@
+.header
+    .container
+        .header__inner
+            .header__left.v-center
+                a.header__logo(href="/")
+                    img(src="./img/logo.png")
+            .header__right.v-center
+                .humburger
+                ul.nav
+                    each item,index in arr
+                        li.nav__item(class=!index ? '-active' : '') #{item}

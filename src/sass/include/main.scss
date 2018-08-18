@@ -1,0 +1,255 @@
+.main{
+  overflow: hidden;
+  &__top{
+    padding-top: 30px;
+    &-left,
+    &-right{
+      margin-bottom: 34px;
+      @extend %d-ib;
+      width: 50%;
+      @extend %v-t;
+    }
+  }
+}
+.home{
+  overflow: hidden;
+  &__head-contant{
+    height: 331px;
+    padding: 20px 20px 20px 25px;
+    border-radius: 20px;
+    background-image: url(./img/bg@1x.png);
+    background-size: cover;
+    box-sizing: border-box;
+  }
+  &__left,
+  &__right{
+    @extend %d-ib;
+    @extend %v-t;
+  }
+  &__left{
+    width: 64%;
+    @extend %box-sizing;
+    padding-right: 10px;
+  }
+  &__right{
+    width: 36%;
+    float: right;
+  }
+  &__news{
+    margin-top: 25px;
+    &-item{
+      @extend %d-ib;
+      &:first-child{
+        margin-right: 18px;
+      }
+      &_outside .home__news-value{
+        &:after{
+          content: '';
+          @extend %d-ib;
+          width: 26px;
+          height: 26px;
+          margin-left: 5px;
+          background-image: url('./img/cloud-drizzle@2x.png');
+          background-size: cover;
+        }
+      }
+    }
+    &-name{
+      font-size: 14px;
+      color: #858585;
+      padding-bottom: 5px;
+    }
+    &-value{
+      font-size: 36px;
+      color: $black;
+      letter-spacing: 0;
+      text-align: left;
+      font-weight: 700;
+    }
+  }
+  &__device{
+    @extend %hover;
+  }
+  &__device, &__device_more{
+    @extend %b-info;
+    width: 100%;
+    height: 120px;
+    &_more{
+      @extend %pointer;
+      height: 41px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+      text-align: center;
+      margin-bottom: none;
+      &:before{
+        content: '';
+        @extend %d-ib;
+        width: 19px;
+        height: 19px;
+        background-image: url('./img/arrow.png');
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+.f-scene{
+  padding-left: 19.5px;
+  @extend %box-sizing;
+  &s{
+    white-space: nowrap;
+  }
+  &__inner{
+      @extend %d-ib;
+      @extend %v-t;
+      width: 100%;
+  }
+  &__name{
+    padding-left: 7.5px;
+  }
+  &__item{
+    @extend %b-info;
+    @extend %d-b;
+    float: left;
+    width: calc(100% / 3 - 2 * 7.5px);
+    width: calc(100% / 3 - 2 * 7.5px);
+    max-width: 200px;
+    height: 100px;
+    margin: 5px 7.5px 15px;
+    &-name{
+      @extend %d-ib;
+      overflow: hidden;
+    }
+    &-desc{
+      &:not(:empty){
+        & + h4{
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          width: 100%;
+        }
+      }
+    }
+    @extend %hover;
+  }
+  &__header{
+    .f-scene__name{
+      @extend %d-ib;
+      width: calc(100% - 50px - 7.5px);
+    }
+  }
+}
+.f-device{
+  margin: 0 0 25px;
+  &__head{
+    @extend %d-ib;
+    margin-right: 7px;
+  }
+  &__header{
+    .arrow__next,
+    .arrow__prev{
+      &:before{
+        width: 10px;
+        height: 10px;
+      }
+      &-active{
+        width: 11px;
+        height: 11px;
+      }
+    }
+    &-left,
+    &-right{
+      @extend %d-ib;
+      @extend %v-center;
+    }
+    &-left{
+      width: calc(100% - 50px);
+    }
+    &-right{
+    }
+  }
+  &__text{
+    width: calc(100% - 30px);
+  }
+  &__category{
+    @extend %d-ib;
+    @extend %pointer;
+    margin: 0 5px 20px;
+    padding: 8px 15px;
+    border-radius: 20px;
+    background-color: #F7F7F7;
+    &.-active{
+      background-color: #FFD93E;
+    }
+    &-list{
+      @extend %d-ib;
+    }
+    &:hover{
+      background-color: #FFD93E;
+    }
+  }
+  &__item{
+    @extend %b-info;
+    @extend %d-ib;
+    @extend %v-center;
+    @extend %hover;
+    height: 120px;
+    margin: 2px 7.5px 15px;
+
+    transition: all .11s linear;
+    &-wrapper{
+      @extend %d-ib;
+      @extend %v-t;
+      width: 215px;
+      height: 137px;
+    }
+    &-inner{
+
+    }
+    &-name{
+      position: relative;
+      display: block;
+    }
+  }
+  &__list{
+    @extend %d-ib;
+    white-space: nowrap;
+    width: calc(100% + 20px);
+    overflow: auto;
+  }
+  //&__item-wrapper{
+  //    width: calc(100% - 15px);
+  //    height: 32px;
+  //    overflow: hidden;
+  //}
+}
+
+[src*="temperature"],
+[src*="sun"],
+[src*="scheduled"]{
+  height:24px;
+}
+//.ellipsis{
+//    position: absolute;
+//    right: -1px;
+//    top: calc(4em + 7px - 100%);
+//}
+//.f-scene__item-desc,
+//.home__device-desc,
+//.f-device__item-desc{
+//  white-space: nowrap;
+//
+//}
+
+.backdrop{
+  width: 100%;
+  height: 100%;
+  //background-color: $black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  transition: all .1s linear;
+  .f-device__item{
+    //@extend %position-center;
+  }
+}
